@@ -8,7 +8,7 @@ Incluir as seguintes dependências em seu arquivo build.gradle, nível do aplica
 
 
 ```
-plubins {
+plugins {
     ...
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
     ...
