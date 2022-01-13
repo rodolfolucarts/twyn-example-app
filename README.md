@@ -4,10 +4,26 @@ TWYN example app é um aplicativo android contendo exemplo de chamada de registr
 
 
 ## Configuração
-Incluir as seguintes dependências em seu projeto
+Incluir as seguintes dependências em seu arquivo build.gradle, nível do aplicativo
 
 
 ```
+plubins {
+    ...
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
+    ...
+}
+android {
+    ...
+    dataBinding {
+        enabled true
+    }
+    ...
+
+
+}
+
+
 implementation 'com.squareup.okhttp3:okhttp:4.9.2'
 implementation 'com.github.f0ris.sweetalert:library:1.6.2'
 implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1'
