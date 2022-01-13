@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+       <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+           <RadioGroup
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/radio">
+               <TextView
+                   android:id="@+id/title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Ação"
+                   android:textStyle="bold"
+                   android:textSize="20sp"/>
+
+               <RadioButton
+                   android:id="@+id/cadastrar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Cadastrar"
+                   android:onClick="radio_button_click"/>
+
+               <RadioButton
+                   android:id="@+id/verificar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Verificar"
+                   android:onClick="radio_button_click"/>
+
+           </RadioGroup>
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/cpf"
+               android:inputType="number"
+               android:hint="CPF"
+               />
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="textCapWords"
+               android:id="@+id/nome"
+               android:hint="Nome Completo"
+               />
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/email"
+               android:inputType="textEmailAddress"
+               android:hint="E-mail"
+               />
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/celular"
+               android:hint="Celular"
+               />
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/dataNascimento"
+               android:inputType="date"
+               android:hint="Data de Nascimento"
+               />
+
+
+
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Captura"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="OnClick" />
+
+    </LinearLayout>
+</layout>
