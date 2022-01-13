@@ -55,7 +55,7 @@ class MainActivity : Activity(), TransactionCompletedListener{
 
 
 
-            service.startCapture(applicationContext, input,
+            service.startCapture(this, input,
 //                object : TransactionCompletedListener {
 //                    override fun onTransactionComplete(code: String, message: String) {
 //                        sendMessage(code, message)
