@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.twyn.capture.sdk.contracts.CaptureActivityContract
 import br.com.twyn.capture.sdk.data.InputData
 import br.com.twyn.capture.sdk.enums.TransactionType
+import br.com.twyn.capture.sdk.services.StartCaptureService
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,7 +50,10 @@ class MainActivity : AppCompatActivity() {
                 dateOfBirth = findViewById<EditText>(R.id.dataNascimento).text.toString()
             )
 
-            pickCapture.launch(input)
+            StartCaptureService.capture(pickCapture, input)
+
+//            pickCapture.launch(input)
+
         }
     }
 
