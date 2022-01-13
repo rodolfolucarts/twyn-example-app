@@ -7,4 +7,10 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Twyn Example App"
+
+
 include ':app'
+
+//
+//include ':iggual-android-sdk'
+//project(':iggual-android-sdk').projectDir = new File (sdk)

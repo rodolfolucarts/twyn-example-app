@@ -1,32 +1,31 @@
 package br.com.twyn.example
 
-import android.app.Activity
+import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
+import br.com.twyn.capture.sdk.contracts.CaptureActivityContract
 import br.com.twyn.capture.sdk.data.InputData
 import br.com.twyn.capture.sdk.enums.TransactionType
-import br.com.twyn.capture.sdk.listeners.TransactionCompletedListener
-import br.com.twyn.capture.sdk.services.StartCaptureService
-import android.app.NotificationManager
-import android.content.Context
-import android.widget.Toast
-import br.com.twyn.capture.sdk.listeners.TaskCompletedListener
 
 
-class MainActivity : Activity(), TransactionCompletedListener{
+class MainActivity : AppCompatActivity() {
 
     private var transactionType = TransactionType.ENROLLMENT
-    private lateinit var codeCallback : String
+    private lateinit var codeCallback: String
 
-    private lateinit var _context :Context
+    private lateinit var _context: Context
 
+    private val pickCapture =
+        registerForActivityResult(CaptureActivityContract()) { result ->
+            println("result $result")
+            Toast.makeText(this, result.toString(), Toast.LENGTH_LONG).show()
+            result.toString()
+        }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,26 +48,9 @@ class MainActivity : Activity(), TransactionCompletedListener{
                 mobilePhone = findViewById<EditText>(R.id.celular).text.toString(),
                 dateOfBirth = findViewById<EditText>(R.id.dataNascimento).text.toString()
             )
-            println(input.type.toString())
 
-            val service = StartCaptureService()
-
-
-
-            service.startCapture(this, input,
-//                object : TransactionCompletedListener {
-//                    override fun onTransactionComplete(code: String, message: String) {
-//                        sendMessage(code, message)
-//                    }
-//                }
-                        this)
+            pickCapture.launch(input)
         }
-
-    }
-
-
-    fun sendMessage(code: String, message: String) {
-        Toast.makeText(this._context, "message", Toast.LENGTH_LONG).show()
     }
 
     fun radio_button_click(view: View) {
@@ -100,10 +82,5 @@ class MainActivity : Activity(), TransactionCompletedListener{
         findViewById<EditText>(R.id.dataNascimento).visibility = visibility
 
     }
-
-    override fun onTransactionComplete(code: String, message: String) {
-        sendMessage(code, message)
-    }
-
 
 }
