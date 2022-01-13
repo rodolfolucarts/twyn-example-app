@@ -8,7 +8,7 @@ Incluir as seguintes dependências em seu arquivo build.gradle, nível do aplica
 
 
 ```
-plugins {
+plubins {
     ...
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
     ...
@@ -23,15 +23,19 @@ android {
 
 }
 
+dependencies {
+...
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.4'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+    implementation (files("path-to-aar-file"))
+...
+}
 
-implementation 'com.squareup.okhttp3:okhttp:4.9.2'
-implementation 'com.github.f0ris.sweetalert:library:1.6.2'
-implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1'
-implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
-implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.4'
-implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-implementation "androidx.work:work-runtime-ktx:2.7.1"
-implementation (files("path-to-aar-file"))
 ```
 
 ## Implementação
